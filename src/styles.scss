@@ -7,14 +7,14 @@
 
 }
 
-.employeeList-title {
+.employeeList-title, .projectList-title {
   margin: 0;
   padding: 0 25px;
   color: #3146d5;
   font-size: 36px;
 }
 
-.employeeList-item {
+.employeeList-item, .projectList-item {
   font-size: 22px;
   margin-top: 8px;
   list-style-type: none;
