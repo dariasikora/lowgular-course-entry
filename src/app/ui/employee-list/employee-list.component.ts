@@ -15,7 +15,6 @@ export class EmployeeListComponent {
   }
   remove(id: string) {
     this._employeeService.delete(id).subscribe();
-
   }
 }
 
