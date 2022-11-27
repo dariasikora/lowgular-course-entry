@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { PersonModel } from '../model/person.model';
-import { CreateEmployeeModel } from '../model/create-employee.model';
-import {ApiResponse} from "./api.response";
-import {EmployeeResponse} from "./employee.response";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {map, switchMap} from 'rxjs/operators';
+import {PersonModel} from '../model/person.model';
+import {ApiResponse} from './api.response';
+import {EmployeeResponse} from './employee.response';
+import {CreateEmployeeModel} from '../model/create-employee.model';
+import {EmployeeModel} from '../model/employee.model';
 
 @Injectable()
 export class EmployeeService {
@@ -23,7 +24,7 @@ export class EmployeeService {
 
         }
       })
-      }));
+    }));
 
   }
 
@@ -33,5 +34,18 @@ export class EmployeeService {
 
   delete(id: string): Observable<void> {
     return this._httpClient.delete('https://dummy.restapiexample.com/api/v1/delete/' + id).pipe(map(_ => void 0));
+  }
+
+  getOne(id: string): Observable<EmployeeModel> {
+    return this._httpClient.get<ApiResponse<EmployeeResponse>>('https://dummy.restapiexample.com/api/v1/employee/' + id + name).pipe(map((response: ApiResponse<EmployeeResponse>):
+    EmployeeModel => ({
+      id: response.data.id,
+      name: response.data.employee_name,
+      email: '',
+      image: response.data.profile_image
+    })
+  ))
+    ;
+
   }
 }

@@ -1,5 +1,7 @@
-<h1>Employee</h1>
-<ul>
-  <li> id: {{ (params$ | async)?.id}} </li>
-  <li>name: {{ (params$ | async)?.name}}</li>
-</ul>
+<div style="width: 250px; margin: 25px auto; ">
+  <h1 style="margin-top: 25px; margin-bottom: 25px;">Employee</h1>
+  <h3 style="display: block; font-size: 18px;"> ID: <span
+    style="font-size: 18px; font-weight: normal;"> {{ (details$ | async)?.id}} </span></h3>
+  <h3 style="display: block; font-size: 18px;"> Name: <span
+    style="font-size: 18px; font-weight: normal;">{{ (details$ | async)?.name}} </span></h3>
+</div>
