@@ -11,7 +11,7 @@ import {map} from "rxjs/operators";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EmployeeDetailsComponent {
-  readonly params$: Observable<EmployeeDetailsParamsModel> = this._activatedRoute.params.pipe(map(params => ({id: params['id']})));
+  readonly params$: Observable<EmployeeDetailsParamsModel> = this._activatedRoute.params.pipe(map(params => ({id: params['id'], name: params['name']})));
 
   constructor(private _activatedRoute: ActivatedRoute) {
   }

@@ -1,2 +1,5 @@
-<h1>Employee Details</h1>
-{{ (params$ | async)?.id}}
+<h1>Employee</h1>
+<ul>
+  <li> id: {{ (params$ | async)?.id}} </li>
+  <li>name: {{ (params$ | async)?.name}}</li>
+</ul>
